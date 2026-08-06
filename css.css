@@ -1124,6 +1124,11 @@ form button:hover {
     line-height: 60px;
 }
 
+#formulaire .droite * {
+    text-decoration: none;
+    color: #51695C;
+}
+
 #confirmation {
     position: absolute;
     bottom: 5px;
@@ -1300,8 +1305,6 @@ footer a {
 footer .droite * {
     margin: auto auto auto 0;
     transition: all 0.3s ease;
-    text-decoration: none;
-    color: #51695C;
 }
 
 footer .droite:has(.lien-header:hover) .lien-header:not(:hover) {
