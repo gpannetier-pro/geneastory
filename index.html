@@ -1,0 +1,307 @@
+   <!---------------------------------------
+    © Arnaud Aublet, Guillaume Pannetier
+    ---------------------------------------->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Généastory</title>
+    <link rel="icon" type="image/png" href="photos-site/logo-carre-geneastory.png">
+    <!-- FEUILLE DE STYLE CSS -->
+    <link href="css.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="nav-barre">
+            <a href="#" class="lien-logo"><img alt="logo" class="logo" src="photos-site/logo-geneastory.png"></a>
+            <nav class="nav">
+                <a href="#presentation" class="bouton" id="bouton-pres">présentation</a>
+                <a href="#tarifs" class="bouton" id="bouton-tarifs">prestations et tarifs</a>
+                <a href="#contact" class="bouton" id="bouton-contact">contact</a>
+                <div id="reseaux">
+                    <a href="https://www.facebook.com/geneastory" target="_blank"><img alt="facebook" class="logos-reseaux" id="logo-fb" src="photos-site/logo-fb-geneastory.png"></a>
+                    <a href="https://www.instagram.com/geneastory_" target="_blank"><img alt="instagram" class="logos-reseaux" id="logo-insta" src="photos-site/logo-insta-geneastory.png"></a>
+                </div>
+            </nav>
+        </div>
+        <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1 id="titre-site">
+                <span class="texte-transparent">sur la trace</span><br>
+                <span>de vos ancêtres</span>
+            </h1>
+            <img src="photos-site/ensemble-photos.png" alt="archives" class="archives" id="archives-ordi">
+            <img src="photos-site/ensemble-photos-mobile.png" alt="archives" class="archives" id="archives-mobile">
+        </section>
+        <section id="presentation">
+            <h1 class="titre-section">présentation</h1>
+            <p id="texte-presentation">
+                <br>
+                Passionné de généalogie depuis plus de dix ans, je mets aujourd'hui mon expérience au service de celles et ceux qui souhaitent découvrir leurs origines, mieux connaitre leurs ancêtres ou perpétuer leur histoire familiale.
+                <br><br>
+                Qui n'a jamais eu un jour la curiosité de remonter son arbre généalogique, de connaître ses racines ou de vérifier une légende familiale comme un cousinage supposé avec un personnage historique ?
+                <br><br>
+                Mais souvent par manque de temps, ou pour s’éviter des recherches fastidieuses, la curiosité s’évanouit.
+                <br><br>
+                Je propose donc, avec Généastory, mes services pour reconstituer le parcours de votre famille avec méthode en me basant sur toutes les archives officielles disponibles.
+                 <br><br>
+                Que vous souhaitiez remonter votre ascendance, faire vivre un souvenir ou offrir un cadeau unique à un proche, chaque histoire mérite d'être racontée et transmise.
+            </p>
+        </section>
+        <section id="tarifs">
+            <h1 class="titre-section">prestations et tarifs</h1>
+            <h2 class="sous-titre">
+                <span class="categories ligne-haute">Nos formules </span>
+                <span class="ligne-basse">Vous ne faites rien, on s'occupe de tout !</span>
+            </h2>
+            <div id="formules">
+                <div class="carte openPdf" href="pdf/decouverte.png" id="decouverte">
+                    <img src="photos-site/1-decouverte-miniature.png" alt="découverte" class="img-carte">
+                    <h3>Découverte</h3>
+                    <h4>3 générations</h4>
+                    <p>(7 personnes)</p>
+                    <div class="exemple">Exemple d'arbre</div>
+                    <p class="prix">90<span class="euro"> €</span></p>
+                </div>
+                <div class="carte openPdf" href="pdf/origine.png" id="origine">
+                    <img src="photos-site/2-origine-miniature.png" alt="origine" class="img-carte">
+                    <h3>Origine</h3>
+                    <h4>4 générations</h4>
+                    <p>(15 personnes)</p>
+                    <a class="exemple">Exemple d'arbre</a>
+                    <p class="prix">240<span class="euro"> €</span></p>
+                </div>
+                <div class="carte meilleure-vente openPdf" href="pdf/memoire.png" id="memoire" >
+                    <img src="photos-site/3-memoire-miniature.png" alt="mémoire" class="img-carte">
+                    <h3>Mémoire</h3>
+                    <h4>5 générations</h4>
+                    <p>(31 personnes)</p>
+                    <a class="exemple">Exemple d'arbre</a>
+                    <p class="prix">490<span class="euro"> €</span></p>
+                </div>
+                <div class="carte openPdf" href="pdf/patrimoine.png" id="patrimoine">
+                    <img src="photos-site/4-patrimoine-miniature.png" alt="patrimoine" class="img-carte">
+                    <h3>Patrimoine</h3>
+                    <h4>6 générations</h4>
+                    <p>(63 personnes)</p>
+                    <a class="exemple">Exemple d'arbre</a>
+                    <p class="prix">910<span class="euro"> €</span></p>
+                </div>
+                <div class="carte openPdf" href="pdf/heritage.png" id="heritage">
+                    <img src="photos-site/5-heritage-miniature.png" alt="héritage" class="img-carte">
+                    <h3>Héritage</h3>
+                    <h4>7 générations</h4>
+                    <p>(127 personnes)</p>
+                    <a class="exemple">Exemple d'arbre</a>
+                    <p class="prix">1720<span class="euro"> €</span></p>
+                </div>
+                <div class="carte" id="carte-cadeau">
+                    <div class="idee-cadeau">
+                        <p>
+                            CADEAU ORIGINAL <br>
+                            Mariage, naissance ...
+                        </p>
+                        <img src="photos-site/noeud.png" alt="noeud" class="noeud">
+                    </div>
+                </div>
+            </div>
+            <p class="asterisque">Chaque formule comprend la production au format numérique d'un arbre généalogique accompagné d'un dossier regroupant les copies d'actes de naissance, mariage et décès trouvés. Impression de l'arbre et/ou du dossier en option.</p>
+            
+            <div id="arbre">
+                <img src="photos-site/arbre-genealogique.PNG" alt="arbre" id="photo-arbre">
+                <div id="enveloppe">
+                    <div class="idee-cadeau">
+                        <p>
+                            CADEAU ORIGINAL <br>
+                            Mariage, naissance ...
+                        </p>
+                        <img src="photos-site/noeud.png" alt="noeud" class="noeud">
+                    </div>
+                    <p id="celebrez">Célébrez un événement en offrant votre histoire pour la transmettre aux générations futures ! <br><br>
+                                    Généastory vous accompagne pour perpétuer le souvenir famillial.</p>
+                </div>
+            </div>
+
+            <h2 class="sous-titre">
+                <span class="categories ligne-haute">Lignée patronymique</span> 
+                <span class="ligne-basse">Seulement la branche de votre nom famille</span>
+            </h2>
+            <div id="lignees">
+                <div class="lignee ligne" id="quatre">
+                    <h4>Nom de famille sur 4 générations</h4>
+                    <p class="prix">60<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="cinq">
+                    <h4>Nom de famille sur 5 générations</h4>
+                    <p class="prix">75<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="six">
+                    <h4>Nom de famille sur 6 générations</h4>
+                    <p class="prix">90<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="sept">
+                    <h4>Nom de famille sur 7 générations</h4>
+                    <p class="prix">105<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="huit">
+                    <h4>Nom de famille sur 8 générations</h4>
+                    <p class="prix">120<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="neuf">
+                    <h4>Nom de famille sur 9 générations</h4>
+                    <p class="prix">135<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="dix">
+                    <h4>Nom de famille sur 10 générations</h4>
+                    <p class="prix">150<span class="euro"> €</span></p>
+                </div>
+                <div class="lignee ligne" id="onze">
+                    <h4>À partir de 11 générations</h4>
+                    <p class="prix"><span class="plus">+ </span>20<span class="euro"> €</span><span class="petit">/ancêtre</span></p>
+                </div>
+            </div> 
+            <p class="asterisque">Cette prestation comprend l'envoi numérique de la lignée et les copies d'actes civils ou paroissiaux prouvant les filiations.<br>
+                Dans le cas où le patronyme aurait été transmis par la mère, la recherche continuera dans cette direction.</p>
+            <a href="pdf/lignee-patronymique.png" id="patronymique" class="exemple openPdf">Voir un exemple d'une lignée patronymique</a>
+                        
+            <h2 class="sous-titre">
+                <span class="categories ligne-haute">Recherches périphériques</span> 
+                <span class="ligne-basse">Pour approfondir les recherches</span>
+            </h2>
+            <div class="ligne" id="fratrie">
+                <h4 class="ligne-haute">Recherche des frères et</h4> 
+                <h4 class="ligne-basse">sœurs d'un ancêtre</h4>
+                <p class="prix">120<span class="euro"> €</span></p>
+            </div>
+            <div class="ligne" id="oncles">
+                <h4>Recherche des oncles et tantes d'un ancêtre</h4>
+                <p class="prix">120<span class="euro"> €</span></p>
+            </div>
+            <div class="ligne" id="cousins">
+                <h4>Recherche de cousins d'un ancêtre</h4>
+                <p class="prix">150<span class="euro"> €</span><span class="petit">/branche</span></p>
+            </div>
+            
+            <h2 class="sous-titre">
+                <span class="categories ligne-haute">Prestations sur</span> 
+                <span class="categories ligne-basse">vos données</span>
+            </h2>
+            <div class="ligne" id="mise-en-forme">
+                <h4>Mise en forme de vos données</h4>
+                <h4><span class="parentheses"> (format numérique ou format papier)</span></h4>
+                <p class="prix">4<span class="euro"> €</span><span class="petit">/ancêtre</span></p>
+            </div>
+            <div class="ligne" id="verification">
+                <h4>Vérification et correction</h4>
+                <h4><span class="parentheses"> (de votre arbre généalogique)</span></h4>
+                <p class="prix">7<span class="euro"> €</span><span class="petit">/ancêtre</span></p>
+            </div>
+
+            <h2 class="sous-titre"><span class="categories">Accompagnement <span class="minuscule">et</span> conseil</span></h2>
+            <div class="ligne" id="aide">
+                <h4>Aide à la généalogie à domicile</h4>
+                <p class="prix">20<span class="euro"> €</span><span class="petit">/heure <span class="plus">+</span> déplacement</span></p>
+            </div>
+            <div class="ligne" id="initiation">
+                <h4>Initiation à la généalogie</h4>
+                <p class="prix">100<span class="euro"> €</span><span class="petit">/demi-journée <span class="plus">+</span> déplacement</span></p>
+            </div>
+            <div class="ligne" id="sur-mesure">
+                <h4>Vos projets sur mesure</h4>
+                <a href="#contact" id="devis" class="exemple">SUR DEVIS</a>
+            </div>
+            <p class="asterisque centre">Tarifs exprimés en euros. Entreprise non-assujettie à la TVA <span class="article">(art. 293B du CGI)</span><br>
+                Les prix sont donnés à titre indicatif et sont susceptibles de varier selon le dossier. Seul le devis personnalisé accepté fait foi.</p>
+            <a href="pdf/tarifs.png" id="grille" class="exemple openPdf">Grille tarifaire complete</a>
+            </section>
+
+        <section id="contact">
+            <h1 class="titre-section">contact</h1>
+            <div id="formulaire">
+                <div class="gauche">
+                    <form 
+                    name="contact" 
+                    method="POST" 
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    netlify>
+
+                        <input type="hidden" name="form-name" value="contact">
+
+                        <input type="text" name="nom" placeholder="Nom et prénom" required>
+                        <input type="email" name="email" placeholder="Mail" required>
+                        <input type="tel" name="numero" placeholder="Numéro de téléphone">
+                        <textarea name="message" placeholder="Mon message" required></textarea>
+                        <p hidden>
+                            <label>
+                                Ne pas remplir : <input name="bot-field">
+                            </label>
+                        </p>
+                        <button type="submit">Envoyer</button>
+                    </form>
+                    <p id="confirmation">
+                        Votre message a bien été envoyé !
+                    </p>
+                </div>
+
+                <div class="separateur"></div>
+
+                <div class="droite">
+                    <p>
+                        07 43 59 84 32 <br>
+                        contact@geneastory.fr <br>
+                        <span id="logos-form">
+                            <a href="https://www.facebook.com/geneastory" target="_blank"><img alt="facebook" class="logos-reseaux" id="logo-fb" src="photos-site/logo-fb-geneastory.png"></a>
+                            <a href="https://www.instagram.com/geneastory_" target="_blank"><img alt="instagram" class="logos-reseaux" id="logo-insta" src="photos-site/logo-insta-geneastory.png"></a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="photos-site/photo-scroll-1.png" alt="archive" id="scroll-1">
+        <img src="photos-site/photo-scroll-3.png" alt="archive" id="scroll-3">
+        <div id="bottom">
+            <div class="gauche">
+                <a href="#" class="lien-logo"><img alt="logo" class="logo" src="photos-site/logo-geneastory.png"></a>
+                <p id="adresse">
+                    Entreprise individuelle<br>
+                    4, square Henri Régnault <br>
+                    92400 Courbevoie <br>
+                    SIRET : 10622502200016
+                </p>
+            </div>
+            <div class="separateur"></div>
+            <div class="droite">
+                <a href="mentions-legales.html" class="lien-header">Mentions légales</a>
+                <a href="politique-confidentialite.html" class="lien-header">Politique de confidentialité</a>
+                <a href="cgv.html" class="lien-header">CGV</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+    <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="image-container">
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
+</div>
+
+    <script src="js.js"></script>
+
+</body>
+</html>

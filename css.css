@@ -1,0 +1,1449 @@
+/*
+    =========================================
+    © Arnaud Aublet, Guillaume Pannetier
+    =========================================
+*/
+
+@font-face {
+    font-family : Skene;
+    src: url(fonts/skene-italic-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    overflow-x: clip;
+}
+
+html {
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    overflow-x: clip;
+    background: 
+        linear-gradient(to right, 
+                        rgb(251, 246, 240), 
+                        rgb(221, 205, 183));
+}
+
+/*
+========================================
+                  Menu
+========================================
+*/
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    margin-top: clamp(10px, 2vh, 20px);
+    z-index: 1000;
+}
+
+#nav-barre {
+    display: flex;
+    align-items: center;
+    background: #51695C;
+    width: 95%;
+    height: clamp(50px, 10vh, 100px);
+    max-height: 10vw;
+    border-radius: 10px;
+}
+
+.lien-logo {
+    margin-right: auto;
+    margin-left: clamp(15px, 5vw, 30px);
+}
+
+.logo {
+    display: flex;
+    height: clamp(30px, 3vw, 60px);
+    width: auto; 
+    filter: brightness(0) invert(1);
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: clamp(10px, 3.5vw, 100px);
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.bouton {
+    margin-top: clamp(1.25px, 0.143vw, 2.5px);
+    font-family: Skene;
+    text-decoration: none;
+    color: #ddcdb7;
+    font-size: clamp(17.5px, 1.3vw, 27.5px);
+    white-space: nowrap;
+    transition: transform 0.3 ease; 
+}
+
+.bouton:hover, .bouton.PageActive {
+    margin-top: none;
+    color: white;
+    text-transform: lowercase;
+    font-size: clamp(21.5px, 1.6vw, 33.85px);
+}
+
+#bouton-pres:hover, .PageActive#bouton-pres {
+    padding: 0 clamp(4.9px, 0.37vw, 7.83px);
+}
+
+#bouton-tarifs:hover, .PageActive#bouton-tarifs {
+    padding: 0 clamp(9.2px, 0.67vw, 14.17px);
+}
+
+#bouton-contact:hover, .PageActive#bouton-contact {
+    padding: 0 clamp(6.26px, 0.465vw, 9.84px);
+}
+
+#reseaux {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(10px, 3vw, 20px);
+    margin-left: clamp(10px, 5vw, 15px);
+    margin-right: clamp(15px, 5vw, 30px);
+}
+
+.logos-reseaux {
+    height: clamp(20px, 2vw, 40px);
+    width: auto;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.logos-reseaux:hover {
+    transform: scale(1.15);
+}
+
+.logos-reseaux:not(#logos-form .logos-reseaux) {
+    filter: brightness(0) invert(1);
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 900px) and (min-width: 551px) {
+    #reseaux {
+        display: none;
+    }
+
+    nav {
+        margin-right: clamp(5px, 2vw, 20px);
+    }
+
+    .lien-logo {
+        margin-left: clamp(5px, 2vw, 20px);
+    }
+}
+
+@media screen and (max-width: 720px) and (min-width: 551px) {
+    nav {
+        margin: 0 auto;
+    }
+
+    header .lien-logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    header{
+        position: sticky;
+        top: 0;
+        margin: 0;
+        background: transparent;
+        justify-content: center;
+    }
+
+    #nav-barre{
+        width: 100%;
+        height: 7vh;
+        border-radius: 0;
+        justify-content: center;
+        position: relative;
+        z-index: 100;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        max-height: 100px;
+    }
+
+    .lien-logo{
+        margin: 0;
+    }
+
+    .logo{
+        height: clamp(25px, 10vw, 45px);
+    }
+
+    #nav-barre:has(.nav.open)::after {
+        content: "";
+        position: fixed;
+        margin-top: 7vh;
+        width: 100vw;    /* longueur */
+
+        height: 1px;
+
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.2) 25%,
+            rgba(255, 255, 255, 0.5) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent
+        );
+        transition: all 0.5s ease;
+    }
+
+    .nav{
+        position: absolute;
+        top: 7vh;
+        left: 0;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap: 25px;
+        padding: 30px 0;
+
+        background: #51695C;
+        border-radius: 0 0 20px 20px;
+        transition: transform .35s ease;
+        transform: translateY(-150%);
+        z-index: -1;
+    }
+
+    .nav.open{
+        transform: translateY(0);
+    }
+
+    .bouton{
+        font-size: 18px;
+        margin: 2.5px 0;
+    }
+
+    #reseaux {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 10px 0 0 0;
+    }
+
+    .logos-reseaux {
+        height: clamp(12.5px, 2.5vh, 25px);
+    }
+
+    .hamburger{
+        position: absolute;
+        right: 18px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 26px;
+        height: 22px;
+
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        z-index: 200;
+    }
+
+    .hamburger span{
+        position: absolute;
+        width:100%;
+        height:2px;
+        background:white;
+        transition:.3s;
+    }
+
+    .hamburger span:nth-child(1){
+        transform:translateY(-8px);
+    }
+
+    .hamburger span:nth-child(3){
+        transform:translateY(8px);
+    }
+
+    .hamburger.open span:nth-child(1){
+        transform:rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2){
+        opacity:0;
+    }
+
+    .hamburger.open span:nth-child(3){
+        transform:rotate(-45deg);
+    }
+}
+
+/*
+========================================
+                  Main
+========================================
+*/
+
+#presentation, #tarifs, #contact, #mentions, #pc, #cgv {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    width: 70vw;
+}
+
+#presentation, #tarifs, #contact {
+    scroll-margin-top: 12vh;
+}
+
+.titre-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #51695C;
+    border-radius: 10px;
+    padding: clamp(10px, 2vh, 20px) clamp(15px, 5vw, 30px) clamp(7.5px, 1.5vh, 15px) clamp(15px, 5vw, 30px);
+    text-transform: uppercase;
+    font-family: Skene;
+    color: white;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(32.5px, 2.14vw, 75px);
+    font-weight: lighter;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: max-content;
+    white-space: nowrap;
+}
+
+#formulaire, #bottom {
+    display: flex;
+    align-items: stretch;
+    gap: clamp(5px, 1.5vw, 10px);
+}
+
+.gauche, .droite {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 50%;
+}
+
+@media screen and (max-width: 900px) {
+    
+    #presentation, #tarifs, #contact, #mentions, #pc, #cgv {
+        width: 85vw;
+    }
+    
+}
+
+@media screen and (max-width: 550px) {
+
+    #presentation, #tarifs, #contact, #mentions, #pc, #cgv {
+        width: 85vw;
+    }
+
+    #presentation, #tarifs, #contact {
+        scroll-margin-top: 10vh;
+    }
+
+    .titre-section {
+        font-size: clamp(17.5px, 6vw, 30px);
+    }
+
+    #formulaire, #bottom {
+        flex-direction: column;
+    }
+
+    .gauche, .droite {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/*
+=========================================
+                1ère page
+=========================================
+*/
+
+#home {
+    font-family: Skene;
+    height: 100vh;
+    position: relative;
+    min-height: 61vw;
+}
+
+#titre-site {
+    left: 50vw;
+    top: 45vh;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: min(6vw, clamp(2vw, 5vh, 90px));
+    color: #51695C;
+}
+
+#titre-site span {
+    font-weight: lighter;
+    font-family: Skene;
+    font-size: clamp(75px, 6.5vw, 200px);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texte-transparent {
+    -webkit-text-stroke: 2.5px #51695C;  /* Contour en vert */
+    color: transparent;  /* Texte en transparent */
+}
+
+.archives {
+    position: absolute;
+    left: 50%;
+}
+
+#archives-ordi {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    transform: translate(-50%, 15%);
+}
+
+#archives-mobile {
+    transform: translate(-50%, -45%);
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    
+    #titre-site span {
+        font-size: clamp(30px, 12.5vw, 75px);
+    }
+
+    #archives-ordi{
+        display: none;
+    }
+
+    #archives-mobile {
+        display: block;
+        width: 115vw;
+        top: 50%;
+    }
+
+    .texte-transparent{
+        -webkit-text-stroke: 2px #51695C;
+    }
+}
+
+@media screen and (max-width: 1260px) and (min-width: 551px){
+    #archives-ordi{
+        width:130svh;
+    }
+
+}
+
+/*
+=========================================
+                2ème page
+=========================================
+*/
+
+#presentation {
+    margin-top: 60px;
+}
+
+#texte-presentation {
+    margin: 20px auto;
+    font-size: clamp(17.5px, 1.43vw, 25px);
+    text-align: justify;
+    line-height: 1.5;
+    font-weight: 500;
+    opacity: 0.55;
+}
+
+@media screen and (max-width: 550px) {
+
+    #presentation {
+        margin-top: 20vh;
+    }
+
+    #texte-presentation {
+        font-size: clamp(12.5px, 3.5vw, 20px);
+    }
+}
+
+/*
+=========================================
+                3ème page
+=========================================
+*/
+
+.sous-titre {
+    color: #51695C;
+    margin-top: clamp(25px, 5vh, 50px);
+    margin-bottom: clamp(7.5px, 1.5vh, 15px);
+    font-style: italic;
+    font-weight: 100;
+    font-size: clamp(15px, 1.7vw, 27.5px);
+}
+
+.sous-titre .categories {
+    font-style: normal;
+    font-family: Skene;
+    font-size: clamp(20px, 2.35vw, 40px);
+    text-transform: uppercase;
+}
+
+.ligne-haute, .ligne-basse {
+    white-space: nowrap;
+}
+
+.sous-titre .categories .minuscule {
+    font-style: normal;
+    font-family: Skene;
+    font-size: clamp(20px, 2.35vw, 40px);
+    text-transform: lowercase;
+}
+
+#formules {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(5px, 1vw, 20px);
+}
+
+.carte {
+    border-radius: clamp(7.5px, 0.7vw, 10px);
+    border: #51695C solid clamp(2px, 0.2vw, 3px);
+    transition: all 0.3s ease;
+}
+
+.carte * {
+    text-decoration: none;
+}
+
+.img-carte {
+    width: 100%;
+    background: #D7CCB5;
+    border-radius: 7px 7px 0 0;
+}
+
+.carte h3, h4, .carte p {
+    text-align: center;
+}
+
+.carte h3, h4 {
+    font-family: Skene;
+}
+
+.carte h3 {
+    color: white;
+    margin-top: clamp(-50px, -3.5vw, -5px);
+    padding-bottom: clamp(5px, 1.25vw, 25px);
+    text-transform: uppercase;
+    font-size: clamp(12.5px, 1.7vw, 32.5px);
+    font-weight: lighter;
+    font-style: normal;
+}
+
+.carte:not(#carte-cadeau):hover {
+    transform: scale(1.05);
+}
+
+.carte:not(#carte-cadeau) p:not(.carte .prix) {
+    color: black;    
+    font-style: italic;
+    font-weight: 100;
+    margin-top: clamp(1.5px, 0.175vw, 2.5px);
+    font-size: clamp(10px, 1vw, 17.5px);
+}
+
+#carte-cadeau {
+    display: none;
+}
+
+h4 {
+    color: #51695C;
+    font-size: clamp(12.5px, 1.45vw, 300px);
+    white-space: nowrap;
+}
+
+.lignee h4 {
+    font-size: clamp(9.75px, 1.45vw, 300px);
+}
+
+.exemple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: clamp(5px, 0.7vw, 10px);
+    border: #51695C clamp(1.5px, 0.2vw, 3px) solid;
+    text-decoration: none;
+    color: #51695C;
+    font-style: italic;
+    width: max-content;
+    margin: clamp(5px, 0.7vw, 10px) auto;
+    padding: clamp(2.5px, 0.34vw, 5px) clamp(5px, 1.02vw, 15px) clamp(2px, 0.27vw, 4px);
+    font-size: clamp(10px, 1.25vw, 15px);
+    transition: all 0.3s ease;
+}
+
+#lignees {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(5px, 1.5vw, 10px);
+}
+
+#patronymique:hover, #grille:hover, #devis:hover {
+    transform: scale(1.03);
+}
+
+.prix {
+    color: #51695C;
+    padding-bottom: clamp(4px, 0.5vw, 10px);
+    font-size: clamp(20px, 2.5vw, 40px);
+    font-family: Skene;
+}
+
+.meilleure-vente {
+    position: relative;
+}
+
+.carte.meilleure-vente::before {
+    content: "Meilleure vente";
+    padding: clamp(4.5px, 0.35vw, 7.5px);
+    border-radius: 0 0 5px 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    background: #51695C;
+    color: white;
+    font-size: clamp(10.5px, 1.2vw, 22.5px);
+    font-weight: 100;
+    z-index: 10;
+    font-style: italic;
+}
+
+.asterisque {
+    opacity: 0.55;
+    margin-top: clamp(15px, 2vw, 30px);
+    font-size: clamp(13px, 1.5vw, 18.5px);
+}
+
+.ligne {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: #51695C solid clamp(1.5px, 0.2vw, 3px);
+    background: #D7CCB5;
+    margin: 15px 0;
+    opacity: 0;
+}
+
+.lignee.ligne {
+    margin: 7.5px 0;
+}
+
+.ligne h4 {
+    margin-left: clamp(5px, 0.8vw, 15px);
+}
+
+.parentheses {
+    font-size: clamp(10px, 1.25vw, 22.5px);
+    font-style: italic;
+    font-weight: 100;
+    white-space: nowrap;
+}
+
+.ligne .prix {
+    background: #51695C;
+    border-radius: 5px;
+    color: white;
+    width: clamp(60px, 12%, 400px);
+    padding: 6px 0 4px 5px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#mise-en-forme .prix, #verification .prix {
+    width: 15.75%;
+}
+
+#cousins .prix {
+    width: clamp(95px, 19.5%, 450px);
+}
+
+.lignee .prix {
+    width: 25%;
+}
+
+#aide .prix {
+    width: clamp(130px, 25.5%, 500px);
+}
+
+#initiation .prix {
+    width: clamp(170px, 31.5%, 550px);
+}
+
+#onze .prix{
+    width: clamp(95px, 40%, 400px);
+}
+
+.petit {
+    font-size: clamp(8px, 1.05vw, 20px);
+    font-family: Skene;
+    margin-bottom: clamp(-9px, -0.68vw, -5.5px);
+}
+
+.euro {
+    margin-top: clamp(1px, 0.24vw, 3.5px);
+    padding-left: clamp(1px, 0.14vw, 2px);
+    font-style: oblique;
+}
+
+.carte .euro {
+    margin-left: clamp(-12.5px, -0.6vw, -6px);
+}
+
+#patronymique, #grille {
+    padding: clamp(3.5px, 0.476vw, 7px) clamp(8px, 1.63vw, 24px) clamp(3px, 0.405vw, 6px);
+    font-size: clamp(12px, 2.75vw, 22.5px);
+    margin-top: 20px;
+}
+
+#devis {
+    padding: clamp(3.5px, 0.476vw, 7px) clamp(8px, 1.63vw, 24px) clamp(2px, 0.27vw, 4px);    
+    margin-right: clamp(20px, 2.72vw, 50px);
+    font-size: clamp(12.5px, 1.5vw, 20px);
+}  
+
+.centre {
+    text-align: center;
+}
+
+#arbre {
+    position: relative;
+    width: 100vw;
+    height: 45vw;
+}
+
+#photo-arbre {
+    position: relative;
+    width: 90vw;
+    will-change: transform;
+    z-index: 10;
+    right: 45vw;
+    transform: translateX(-100%);
+}
+
+#enveloppe {
+    width: 35vw;
+    height: 27.5vw;
+    background: rgba(237, 228, 213, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 30vw;
+    transform: translateY(-40vw);
+    border: #51695C solid 3px;
+    border-radius: 20px;
+}
+
+.idee-cadeau {
+    width: 25vw;
+    height: 8vw;
+    background: #ddcdb7;
+    color: #51695C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /*right: 10vw;*/
+    transform: translateY(-13vw) rotate(-5deg);
+    padding-left: 1.5vw;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.idee-cadeau p {
+    font-family: Skene;
+    font-size: clamp(11px, 1.5vw, 400px);
+    text-align: center;
+}
+
+.noeud {
+    width: clamp(40px, 8vw, 65px);
+    height: clamp(40px, 8vw, 65px);
+    margin-left: 1vw;
+}
+
+#celebrez {
+    font-style: italic;
+    font-size: clamp(10px, 1.5vw, 300px);
+    color: #51695C;
+    position: absolute;
+    width: 25vw;
+    height: 27.5vw;
+    text-align: justify;
+    /*right: 15vw;*/
+    padding-top: 50%;
+    transform: translateY(-30%);
+    line-height: clamp(12.5px, 1.7vw, 300px);
+}
+
+@media screen and (max-width: 900px) {
+
+    #photo-arbre {
+        right: 37vw;
+    }
+
+    .carte h3 {
+        font-size: clamp(12.5px, 2.25vw, 20px);
+    }
+
+    #enveloppe {
+        width: 42vw;
+        right: 15vw;
+    }
+
+    .idee-cadeau{
+        width: 32vw;
+        height: 7vw;
+    }
+
+    #celebrez {
+        width: 30vw;
+    }
+
+}
+
+@media screen and (max-width: 900px) and (min-width: 721px) {
+    
+    h4 {
+        font-size: clamp(14.5px, 2vw, 300px);
+    }
+
+    .lignee h4 {
+        font-size: clamp(12.5px, 1.45vw, 300px);
+    }
+
+    .parentheses {
+        font-size: clamp(12px, 1.5vw, 22.5px);
+    }
+
+    .idee-cadeau p {
+        font-size: clamp(15px, 2vw, 400px);
+    }
+
+    #celebrez {
+        font-size: clamp(15px, 2vw, 300px);
+        line-height: clamp(16.5px, 2.3vw, 300px);
+        transform: translateY(-47.5%);
+    }
+
+    .carte:not(#carte-cadeau) p:not(.carte .prix) {
+        font-size: clamp(11.5px, 1.35vw, 17.5px);
+    }
+        
+    #patronymique, #grille {
+        font-size: clamp(12px, 2.25vw, 22.5px);
+    }
+        
+    .petit {
+        font-size: clamp(8px, 1.35vw, 20px);
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    
+    #celebrez {
+        transform: translateY(-37.5%);
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+
+    .carte:not(#carte-cadeau) p:not(.carte .prix) {
+        font-size: clamp(10px, 2.5vw, 17.5px);
+    }
+
+    .sous-titre {
+        margin-top: clamp(10px, 2.5vh, 25px);
+        font-size: clamp(14px, 2.75vw, 27.5px);
+    }
+
+    .sous-titre .categories {
+        font-size: clamp(18px, 3.75vw, 40px);
+    }
+
+    #formules {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        align-items: start;
+    }
+
+    #carte-cadeau .idee-cadeau {
+        flex-direction: column-reverse;
+        margin-left: calc(-2.5vw - 2px);
+        width: calc(100% + 5vw + 4px);
+        height: 100%;
+        background: transparent;
+        transform: none;
+        padding-left: 0;
+        box-shadow: none;
+    }
+
+    .noeud {
+        margin-left: 0 ;
+        transform: translateY(-9vw);
+        height: 65px;
+        width: 65px;
+    }
+
+    #carte-cadeau, #enveloppe {
+        display: block;
+        width: calc(100% - 5vw);
+        height: 50%;
+        margin: 50% 2.5vw;
+        border: clamp(2px, 0.2vw, 3px) solid #51695C;
+        transform: translateY(-0%);
+    }
+
+    .exemple {
+        font-size: clamp(11px, 2.5vw, 15px);
+    }
+
+    .idee-cadeau p {
+        margin: 0 4vw;
+        transform: translateY(-5vw);
+        font-size: clamp(17px, 4vw, 100px);
+    }
+
+    .img-carte {
+        height: 100%;
+        background: #D7CCB5;
+        border-radius: 7px 7px 0 0;
+    }
+
+    .carte h3 {
+        color: white;
+        margin-top: clamp(-55px, -7.5vw, -25px);
+        padding-bottom: clamp(5px, 2vw, 25px);
+        text-transform: uppercase;
+        font-size: clamp(13.5px, 5vw, 32.5px);
+        font-weight: lighter;
+        font-style: normal;
+    }
+
+    #lignees {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    #fratrie .prix, #oncles .prix {
+        width: clamp(55px, 15%, 65px);
+        padding: 6px 0 4px 0;
+    }
+
+    .lignee.ligne {
+        margin: 5px 0;
+    }
+
+    .ligne {
+        margin: 10px 0;
+    }
+
+    .ligne .prix {
+        padding: 6px 0 4px 2px;
+        width: clamp(55px, 15%, 65px);
+    }
+
+    h4:not(.carte h4, .lignee h4) {
+        font-size: clamp(8px, 2.95vw, 20px);
+    }
+
+    .lignee h4 {
+        font-size: clamp(11px, 3vw, 20px);
+    }
+
+    .parentheses {
+        display: none;
+    }
+
+    #mise-en-forme .prix, #verification .prix {
+        width: clamp(65px, 22%, 90px);
+    }
+
+    #cousins .prix {
+        width: clamp(85px, 27%, 110px);
+    }
+
+    #aide .prix {
+        width: clamp(90px, 40.5%, 172px);
+    }
+
+    #initiation .prix {
+        width: clamp(125px, 52.5%, 225px);
+    }
+
+    #onze .prix {
+        width: clamp(90px, 25%, 110px);
+    }
+
+    .petit {
+        font-size: clamp(8px, 2.25vw, 20px);
+    }
+
+    #arbre {
+        position: relative;
+        width: auto;
+        height: auto;
+    }
+
+    #photo-arbre {
+        width: 120vw;
+        height: auto;
+        margin: 0 20vw;
+        right: 50vw;
+    }
+
+    #enveloppe {
+        display: none;
+    }
+}
+
+/*
+=========================================
+                4ème page
+=========================================
+*/
+
+#contact {
+    margin-bottom: 50px;
+}
+
+#formulaire .gauche {
+    width: 55%;
+}
+
+#formulaire .droite {
+    width: 35%;
+    justify-content: center;
+    padding-left: clamp(40px, 7.5vw, 120px);
+    margin-left: clamp(-60px, -3.75vw, -20px);
+}
+
+form {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form textarea, form input {
+    background: transparent;
+    border: solid clamp(2px, 0.2vw, 3px) #51695C;
+    margin: 7.5px 0; 
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+    width: 100%;
+    padding: 1vh 1.5vw;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: clamp(14.5px, 1.45vw, 50px);
+    color: #51695C;
+}
+
+form textarea {
+    height: 150px;
+    resize: none;
+}
+
+form textarea::placeholder, form input::placeholder {
+    color: #51695C;
+    text-decoration: none;
+    font-style: italic;
+    font-size: clamp(14.5px, 1.45vw, 50px);
+    font-weight: 100;
+}
+
+form button {
+    border-radius: 10px;
+    border: solid clamp(2px, 0.2vw, 3px) #51695C;
+    color: #51695C;
+    background: transparent;
+    text-transform: uppercase;
+    font-family: Skene;
+    font-size: clamp(14.5px, 1.45vw, 50px);
+    outline: none;
+    margin: 7.5px 0 0 auto; 
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 7.5px 40px;
+}
+
+form button:hover {
+    color: white;
+    background: #51695C;
+}
+
+#formulaire .droite p {
+    text-decoration: none;
+    font-size: clamp(15px, 1.5vw, 85px);
+    font-family: Skene;
+    color: #51695C;
+    line-height: 60px;
+}
+
+#confirmation {
+    position: absolute;
+    bottom: 5px;
+    left: 75px;
+    color: #51695C;
+    font-family: Skene;
+    font-size: 1.5vw;
+    transition: all 0.5s ease;
+    display: none;
+}
+
+.separateur {
+    padding: 10% 1px;
+    margin: auto 0 auto clamp(20px, 3.75vw, 60px);
+    background-color: #51695C;
+    align-self: stretch; /* prend toute la hauteur */
+}
+
+#logos-form {
+    display: flex;
+    gap: clamp(8.5px, 2.5vw, 17px);
+    margin-top: 10px;
+}
+
+#logos-form .logos-reseaux {
+    height: clamp(12.5px, 4.25vh, 20px);
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 900px) and (min-width: 721px) {
+    
+    form textarea::placeholder, form input::placeholder, form textarea, form input, form button {
+        font-size: clamp(14.5px, 1.75vw, 50px);
+    }
+
+    #formulaire .droite p {
+        font-size: clamp(15px, 2vw, 85px);
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    #formulaire .gauche, #formulaire .droite {
+        width: 100%;
+        margin-left: auto;
+        padding-left: 0;
+    }
+
+    form button {
+        margin: 7.5px auto;
+    }
+
+    form button, form textarea::placeholder, form input::placeholder, form textarea, form input {
+        font-size: clamp(12px, 3vw, 20px);
+    }
+
+    #formulaire .droite p {
+        font-size: clamp(20px, 4vw, 40px);
+        line-height: 50px;
+        text-align: center;
+    }
+
+    #logos-form {
+        margin: 0 40vw;
+    }
+}
+
+/*
+========================================
+            Mentions Légales
+========================================
+*/
+
+#mentions, #pc, #cgv {
+    scroll-margin-top: 10vh;
+}
+
+.texte-mentions a {
+    text-decoration: none;
+    color: black;
+}
+
+.categories-mentions {
+    font-family: Skene;
+    font-size: clamp(20px, 4vh, 40px);
+    text-transform: none;
+}
+
+.pas-skene {
+    font-style: italic;
+    font-size: clamp(15px, 3vh, 30px);
+    position: relative;
+    top: -4px;
+    margin: 0 3px 0 5px;
+}
+
+.texte-mentions, .li-mentions {
+    font-size: clamp(12.5px, 2.5vh, 25px);
+    line-height: 30px;
+}
+
+.li-mentions {
+    margin-left: 40px;
+    padding-left: 40px;
+}
+
+.article {
+    opacity: 0.85;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+/*
+========================================
+                 Footer
+========================================
+*/
+
+#scroll-1, #scroll-3 {
+    position: absolute;
+}
+
+#scroll-1 {
+    width: clamp(140px, 22vw, 450px);
+    transform: translateY(-11vw) rotate(-8deg);
+    right: 5vw;
+}
+
+#scroll-3 {
+    width: clamp(95px, 16vw, 252.5px);
+    transform: translateY(-10vw) rotate(8deg);
+    left: 4vw;
+}
+
+#bottom {
+    justify-content: center;
+    height: 100%;
+    padding: clamp(5px, 5vh, 50px);
+}
+
+footer.marge {
+    margin-top: 100px;
+}
+
+footer {
+    color: white;
+    width: 100%;
+    background: #51695C;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    min-height: clamp(20px, 25vh, 200px);
+    position: relative;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(12px, 2.5vh, 17px);
+}
+
+footer .droite * {
+    margin: auto auto auto 0;
+    transition: all 0.3s ease;
+}
+
+footer .droite:has(.lien-header:hover) .lien-header:not(:hover) {
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+#adresse {
+    text-align: end;
+    line-height: clamp(17.5px, 2.5vh, 20px);
+    font-size: clamp(12px, 2.25vh, 15px);
+}
+
+footer .separateur {
+    background-color: white;
+    margin: auto 25px;
+    padding: clamp(20px, 7vh, 60px) 0.5px;
+}
+
+footer .gauche * {
+    margin: auto 0 auto auto;
+}
+
+footer .lien-logo {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 550px) {
+
+    footer {
+        min-height: clamp(26px, 32.5vh, 260px);
+    }
+
+    footer .gauche *, footer .droite * {
+        margin: auto;
+    }
+
+    footer .gauche {
+        margin-top: 5vh;
+    }
+
+    footer .droite {
+        padding: 0 0;
+        margin: 2vh 0;
+    }
+
+    .separateur {
+        display: none;
+    }
+
+    #scroll-1 {
+        width: 30vw;
+        transform: translateY(-12.5vw) rotate(5deg);
+        left: -5vw;
+        right: auto;
+    }
+    
+    #scroll-3 {
+        width: 27.5vw;
+        transform: translateY(-22.5vw) rotate(-6deg);
+        right: -7.5vw;
+        left: auto;
+    }
+
+    .lien-header {
+        padding: 1vh 0;
+    }
+
+}
+
+/*
+=======================================
+                Modal
+=======================================
+*/
+
+/* Fond sombre */
+.modal {
+    width: 100vw;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Quand la fenêtre est ouverte */
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: translateY(-5%);
+}
+
+/* PNG */
+iframe {
+    width: 60vw;
+    height: 100%;
+    border: none;
+}
+
+.modal-content {
+    width: 65vw;
+    height: 80vh;
+
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#modalImage {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+/* Croix */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
