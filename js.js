@@ -42,29 +42,31 @@ const imageModal = document.getElementById("imageModal");
 const modalImage = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close");
 
+function closeModal() {
+    imageModal.classList.remove("show");
+    modalImage.src = "";
+}
+
 document.querySelectorAll(".openPdf").forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
 
-        // Récupère le lien du PDF
         modalImage.src = this.getAttribute("href");
-
-        // Ouvre la fenêtre
         imageModal.classList.add("show");
     });
 });
 
-closeBtn.addEventListener("click", e => {
-    console.log("ok");
-    imageModal.classList.remove("show");
-    modalImage.src = "";
-});
+closeBtn.addEventListener("click", closeModal);
 
 imageModal.addEventListener("click", e => {
     if (e.target === imageModal) {
-        console.log("bis");
-        imageModal.classList.remove("show");
-        modalImage.src = "";
+        closeModal();
+    }
+});
+
+window.addEventListener("scroll", () => {
+    if (imageModal.classList.contains("show")) {
+        closeModal();
     }
 });
 
