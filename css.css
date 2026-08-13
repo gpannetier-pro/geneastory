@@ -28,6 +28,11 @@ html {
         linear-gradient(to right, 
                         rgb(251, 246, 240), 
                         rgb(221, 205, 183));
+scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Safari */
 }
 
 /*
@@ -304,12 +309,12 @@ nav {
 #presentation, #tarifs, #contact, #mentions, #pc, #cgv {
     margin-left: 50%;
     transform: translateX(-50%);
-    margin-top: 50px;
     width: 70vw;
 }
 
 #presentation, #tarifs, #contact {
     scroll-margin-top: 12vh;
+    margin-top: clamp(30px, 3.75vh, 50px)
 }
 
 .titre-section {
@@ -324,7 +329,7 @@ nav {
     color: white;
     margin-left: 50%;
     transform: translateX(-50%);
-    font-size: clamp(32.5px, 2.14vw, 75px);
+    font-size: clamp(27.5px, 2.14vw, 75px);
     font-weight: lighter;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -343,6 +348,10 @@ nav {
     flex-direction: column;
     flex-shrink: 0;
     width: 50%;
+}
+
+.meme-ligne {
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 900px) {
@@ -426,7 +435,7 @@ nav {
     width: 100%;
     height: auto;
     bottom: 0;
-    transform: translate(-50%, 15%);
+    transform: translate(-50%, 10%);
 }
 
 #archives-mobile {
@@ -446,7 +455,7 @@ nav {
 
     #archives-mobile {
         display: block;
-        width: 115vw;
+        width: 130vw;
         top: 50%;
     }
 
@@ -500,7 +509,7 @@ nav {
 
 .sous-titre {
     color: #51695C;
-    margin-top: clamp(25px, 5vh, 50px);
+    margin-top: clamp(25px, 4vh, 50px);
     margin-bottom: clamp(7.5px, 1.5vh, 15px);
     font-style: italic;
     font-weight: 100;
@@ -558,7 +567,7 @@ nav {
 
 .carte h3 {
     color: white;
-    margin-top: clamp(-50px, -3.5vw, -5px);
+    margin-top: clamp(-55px, -3.25vw, -5px);
     padding-bottom: clamp(5px, 1.25vw, 25px);
     text-transform: uppercase;
     font-size: clamp(12.5px, 1.7vw, 32.5px);
@@ -573,7 +582,7 @@ nav {
 .carte:not(#carte-cadeau) p:not(.carte .prix) {
     color: black;    
     font-style: italic;
-    font-weight: 100;
+    font-weight: 300;
     margin-top: clamp(1.5px, 0.175vw, 2.5px);
     font-size: clamp(10px, 1vw, 17.5px);
 }
@@ -584,7 +593,7 @@ nav {
 
 h4 {
     color: #51695C;
-    font-size: clamp(12.5px, 1.45vw, 300px);
+    font-size: clamp(12.5px, 1.5vw, 300px);
     white-space: nowrap;
 }
 
@@ -640,7 +649,7 @@ h4 {
     background: #51695C;
     color: white;
     font-size: clamp(10.5px, 1.2vw, 22.5px);
-    font-weight: 100;
+    font-weight: bold;
     z-index: 10;
     font-style: italic;
 }
@@ -672,7 +681,7 @@ h4 {
 .parentheses {
     font-size: clamp(10px, 1.25vw, 22.5px);
     font-style: italic;
-    font-weight: 100;
+    font-weight: 300;
     white-space: nowrap;
 }
 
@@ -891,16 +900,16 @@ h4 {
 @media screen and (max-width: 550px) {
 
     .carte:not(#carte-cadeau) p:not(.carte .prix) {
-        font-size: clamp(10px, 2.5vw, 17.5px);
+        font-size: clamp(10px, 3.25vw, 17.5px);
     }
 
     .sous-titre {
         margin-top: clamp(10px, 2.5vh, 25px);
-        font-size: clamp(14px, 2.75vw, 27.5px);
+        font-size: clamp(14px, 3.75vw, 27.5px);
     }
 
     .sous-titre .categories {
-        font-size: clamp(18px, 3.75vw, 40px);
+        font-size: clamp(18px, 4.75vw, 40px);
     }
 
     #formules {
@@ -938,7 +947,7 @@ h4 {
     }
 
     .exemple {
-        font-size: clamp(11px, 2.5vw, 15px);
+        font-size: clamp(11px, 3.25vw, 15px);
     }
 
     .idee-cadeau p {
@@ -961,6 +970,10 @@ h4 {
         font-size: clamp(13.5px, 5vw, 32.5px);
         font-weight: lighter;
         font-style: normal;
+    }
+
+    h4 {
+        font-size: clamp(13.5px, 4vw, 300px);
     }
 
     #lignees {
@@ -998,24 +1011,28 @@ h4 {
         display: none;
     }
 
+    .prix {
+        font-size: clamp(17.5px, 5.5vw, 40px);
+    }
+
+    .prix:not(.carte .prix) {
+        font-size: clamp(17.5px, 5vw, 25px);
+    }
+
     #mise-en-forme .prix, #verification .prix {
         width: clamp(65px, 22%, 90px);
     }
 
-    #cousins .prix {
-        width: clamp(85px, 27%, 110px);
+    #cousins .prix, #onze .prix {
+        width: clamp(85px, 27%, 117.5px);
     }
 
     #aide .prix {
-        width: clamp(90px, 40.5%, 172px);
+        width: clamp(118.5px, 41%, 175px);
     }
 
     #initiation .prix {
-        width: clamp(125px, 52.5%, 225px);
-    }
-
-    #onze .prix {
-        width: clamp(90px, 25%, 110px);
+        width: clamp(155px, 53%, 232.5px);
     }
 
     .petit {
@@ -1047,7 +1064,7 @@ h4 {
 */
 
 #contact {
-    margin-bottom: 50px;
+    margin-bottom: clamp(30px, 3.75vh, 50px);
 }
 
 #formulaire .gauche {
@@ -1093,7 +1110,7 @@ form textarea::placeholder, form input::placeholder {
     text-decoration: none;
     font-style: italic;
     font-size: clamp(14.5px, 1.45vw, 50px);
-    font-weight: 100;
+    font-weight: 300;
 }
 
 form button {
@@ -1127,16 +1144,18 @@ form button:hover {
 #formulaire .droite * {
     text-decoration: none;
     color: #51695C;
+    font-family: Skene;
 }
 
 #confirmation {
     position: absolute;
-    bottom: 5px;
-    left: 75px;
+    font-size: clamp(15px, 2.25vw, 22.5px);
+    transform: translateX(-50%);
+    left: 50%;
     color: #51695C;
     font-family: Skene;
-    font-size: 1.5vw;
     transition: all 0.5s ease;
+    white-space: nowrap;
     display: none;
 }
 
@@ -1156,8 +1175,6 @@ form button:hover {
 #logos-form .logos-reseaux {
     height: clamp(12.5px, 4.25vh, 20px);
 }
-
-
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -1207,6 +1224,12 @@ input[type=number] {
     #logos-form {
         margin: 0 40vw;
     }
+
+    #confirmation {
+        font-size: clamp(12.5px, 3vw, 15px);
+        top: 12.25vh;
+        white-space: nowrap;
+    }
 }
 
 /*
@@ -1219,6 +1242,14 @@ input[type=number] {
     scroll-margin-top: 10vh;
 }
 
+#mentions .titre-section, #pc .titre-section, #cgv .titre-section {
+    font-size: clamp(22.5px, 2.15vw, 75px);
+}
+
+#mentions .sous-titre, #pc .sous-titre, #cgv .sous-titre {
+    font-style: normal;
+}
+
 .texte-mentions a {
     text-decoration: none;
     color: black;
@@ -1226,21 +1257,21 @@ input[type=number] {
 
 .categories-mentions {
     font-family: Skene;
-    font-size: clamp(20px, 4vh, 40px);
+    font-size: clamp(25px, 2.5vw, 40px);
     text-transform: none;
 }
 
 .pas-skene {
     font-style: italic;
-    font-size: clamp(15px, 3vh, 30px);
+    font-size: clamp(10px, 5vw, 30px);
+    top: clamp(-1px, -0.25vw, -4px);
     position: relative;
-    top: -4px;
     margin: 0 3px 0 5px;
 }
 
 .texte-mentions, .li-mentions {
-    font-size: clamp(12.5px, 2.5vh, 25px);
-    line-height: 30px;
+    font-size: clamp(15px, 1.5vw, 22.5px);
+    line-height: clamp(15px, 3.5vw, 30px);
 }
 
 .li-mentions {
@@ -1252,6 +1283,27 @@ input[type=number] {
     opacity: 0.85;
     font-style: italic;
     white-space: nowrap;
+}
+
+@media screen and (max-width: 550px) {
+
+    #mentions .titre-section, #pc .titre-section, #cgv .titre-section {
+        font-size: clamp(12.5px, 4vw, 30px);
+    }
+
+    .categories-mentions {
+        font-size: clamp(10px, 5vw, 30px)
+    }
+
+    .texte-mentions, .li-mentions {
+        font-size: clamp(11.5px, 3vw, 25px);
+        line-height: clamp(20px, 4.5vw, 30px);
+    }
+
+    #mentions .sous-titre {
+        margin-top: clamp(10px, 3.5vh, 25px);
+    }
+    
 }
 
 /*
@@ -1271,8 +1323,8 @@ input[type=number] {
 }
 
 #scroll-3 {
-    width: clamp(95px, 16vw, 252.5px);
-    transform: translateY(-10vw) rotate(8deg);
+    width: clamp(100px, 17vw, 280px);
+    transform: translateY(-9vw) rotate(8deg);
     left: 4vw;
 }
 
@@ -1280,6 +1332,7 @@ input[type=number] {
     justify-content: center;
     height: 100%;
     padding: clamp(5px, 5vh, 50px);
+    background: #51695C;
 }
 
 footer.marge {
@@ -1299,10 +1352,12 @@ footer {
 
 footer a {
     color: white;
+    text-decoration: none;
     font-size: clamp(12px, 2.5vh, 17px);
 }
 
 footer .droite * {
+    text-decoration: none;
     margin: auto auto auto 0;
     transition: all 0.3s ease;
 }
@@ -1373,6 +1428,10 @@ footer .lien-logo {
         padding: 1vh 0;
     }
 
+    #adresse {
+        text-align: center;
+    }
+
 }
 
 /*
@@ -1415,6 +1474,7 @@ iframe {
 .modal-content {
     width: 65vw;
     height: 80vh;
+    min-height: 45vw;
 
     position: relative;
     border-radius: 20px;
@@ -1429,6 +1489,11 @@ iframe {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+}
+
+.image-container::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Safari */
 }
 
 #modalImage {
@@ -1450,4 +1515,33 @@ iframe {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+
+@media screen and (max-width: 900px) and (min-width: 721px) {
+
+    .modal.show .modal-content {
+        transform: translateY(-35%);
+    }
+
+    .modal-content {
+        width: 75vw;
+        height: 50vh;
+        min-height: 52vw;
+        max-width: 600px;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+
+    .modal.show .modal-content {
+        transform: translateY(-40%);
+    }
+
+    .modal-content {
+        width: 97vw;
+        height: 50vh;
+        min-height: 68vw;
+        max-width: 650px;
+    }
 }

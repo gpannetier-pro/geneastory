@@ -1,3 +1,43 @@
+/*
+    ----------------------------------------
+    © Arnaud Aublet, Guillaume Pannetier
+    ----------------------------------------
+*/
+
+/*
+    =========================================
+                    Hamburger
+    =========================================
+*/
+
+const hamburgerToggler = document.querySelector(".hamburger");
+const nav = document.querySelector("nav");
+
+function closeNav() {
+    hamburgerToggler.classList.remove("open");
+    nav.classList.remove("open");
+    hamburgerToggler.setAttribute("aria-expanded", "false");
+}
+
+function openNav() {
+    hamburgerToggler.classList.toggle("open");
+    hamburgerToggler.setAttribute("aria-expanded", "true");
+
+    nav.classList.toggle("open")
+}
+
+hamburgerToggler.addEventListener("click", openNav);
+
+document.querySelectorAll("nav .bouton").forEach(link => {
+    link.addEventListener("click", closeNav);
+});
+
+window.addEventListener("scroll", () => {
+    if (nav.classList.contains("open")) {
+        closeNav();
+    }
+});
+
 const imageModal = document.getElementById("imageModal");
 const modalImage = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close");
@@ -35,11 +75,15 @@ function animationArbre() {
     const rect = section.getBoundingClientRect();
     const vh = window.innerHeight;
 
-    // Début : 5% de la section est visible
-    const start = vh - rect.height * 0.1;
-
-    // Fin : la section est complètement sortie par le haut
-    const end = vh - rect.height;
+    if (window.innerWidth <= 550) {
+        // Téléphone : animation plus lente
+        start = vh - rect.height * 0.15;
+        end = vh - rect.height * 1.75;
+    } else {
+        // Ordinateur : comportement actuel
+        start = vh - rect.height * 0.1;
+        end = vh - rect.height;
+    }
 
     let progress = (start - rect.top) / (start - end);
     progress = Math.max(0, Math.min(1, progress));
@@ -133,39 +177,5 @@ form.addEventListener("submit", async (e) => {
         form.reset();
     } else {
         alert("Une erreur est survenue.");
-    }
-});
-
-/*
-    =========================================
-                    Hamburger
-    =========================================
-*/
-
-const hamburgerToggler = document.querySelector(".hamburger");
-const nav = document.querySelector("nav");
-
-function closeNav() {
-    hamburgerToggler.classList.remove("open");
-    nav.classList.remove("open");
-    hamburgerToggler.setAttribute("aria-expanded", "false");
-}
-
-function openNav() {
-    hamburgerToggler.classList.toggle("open");
-    hamburgerToggler.setAttribute("aria-expanded", "true");
-
-    nav.classList.toggle("open")
-}
-
-hamburgerToggler.addEventListener("click", openNav);
-
-document.querySelectorAll("nav .bouton").forEach(link => {
-    link.addEventListener("click", closeNav);
-});
-
-window.addEventListener("scroll", () => {
-    if (nav.classList.contains("open")) {
-        closeNav();
     }
 });

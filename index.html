@@ -7,7 +7,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Généastory</title>
+    <title>Généastory | Recherche généalogique</title>
+    <meta name="description" content="Avec Généastory, réalisez votre arbre généalogique et retrouvez vos ancêtres grâce à des recherches sur mesure et documentées. Transmettez votre histoire !">
+    <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/png" href="photos-site/logo-carre-geneastory.png">
     <!-- FEUILLE DE STYLE CSS -->
     <link href="css.css" rel="stylesheet">
@@ -172,15 +174,14 @@
             </div> 
             <p class="asterisque">Cette prestation comprend l'envoi numérique de la lignée et les copies d'actes civils ou paroissiaux prouvant les filiations.<br>
                 Dans le cas où le patronyme aurait été transmis par la mère, la recherche continuera dans cette direction.</p>
-            <a href="pdf/lignee-patronymique.png" id="patronymique" class="exemple openPdf">Voir un exemple d'une lignée patronymique</a>
+            <a href="pdf/ligne-patronymique.png" id="patronymique" class="exemple openPdf">Voir un exemple d'une lignée patronymique</a>
                         
             <h2 class="sous-titre">
                 <span class="categories ligne-haute">Recherches périphériques</span> 
                 <span class="ligne-basse">Pour approfondir les recherches</span>
             </h2>
             <div class="ligne" id="fratrie">
-                <h4 class="ligne-haute">Recherche des frères et</h4> 
-                <h4 class="ligne-basse">sœurs d'un ancêtre</h4>
+                <h4 class="ligne-haute">Recherche des frères et sœurs d'un ancêtre</h4>
                 <p class="prix">120<span class="euro"> €</span></p>
             </div>
             <div class="ligne" id="oncles">
@@ -220,9 +221,13 @@
                 <h4>Vos projets sur mesure</h4>
                 <a href="#contact" id="devis" class="exemple">SUR DEVIS</a>
             </div>
-            <p class="asterisque centre">Tarifs exprimés en euros. Entreprise non-assujettie à la TVA <span class="article">(art. 293B du CGI)</span><br>
-                Les prix sont donnés à titre indicatif et sont susceptibles de varier selon le dossier. Seul le devis personnalisé accepté fait foi.</p>
-            <a href="pdf/tarifs.png" id="grille" class="exemple openPdf">Grille tarifaire complete</a>
+            <p class="asterisque centre">
+                <span class="meme-ligne">Tarifs exprimés en euros. </span>
+                <span class="ligne-basse">Entreprise non-assujettie à la TVA </span>
+                <span class="article">(art. L. 223-3 du CIBS)</span><br>
+                Les prix sont donnés à titre indicatif et sont susceptibles de varier selon le dossier. Seul le devis personnalisé accepté fait foi.
+            </p>
+            <a href="pdf/tarifs.png" id="grille" class="exemple openPdf">Grille tarifaire complète</a>
             </section>
 
         <section id="contact">
@@ -293,13 +298,13 @@
     </footer>
 
     <div id="imageModal" class="modal">
-    <div class="modal-content">
-        <button class="close">&times;</button>
-        <div class="image-container">
-            <img id="modalImage" src="" alt="">
+        <div class="modal-content">
+            <button class="close">&times;</button>
+            <div class="image-container">
+                <img id="modalImage" src="" alt="">
+            </div>
         </div>
     </div>
-</div>
 
     <script src="js.js"></script>
 

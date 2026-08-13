@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mentions Légales</title>
+    <meta name="format-detection" content="telephone=no">
     <link rel="icon" type="image/png" href="photos-site/logo-carre-geneastory.png">
     <!-- FEUILLE DE STYLE CSS -->
     <link href="css.css" rel="stylesheet">
@@ -16,17 +17,22 @@
 <body>
     <header>
         <div id="nav-barre">
-            <a href="index.html#" class="lien-logo"><img alt="logo" class="logo" src="photos-site/logo-geneastory.png"></a>
+            <a href="index.html" class="lien-logo"><img alt="logo" class="logo" src="photos-site/logo-geneastory.png"></a>
             <nav class="nav">
                 <a href="index.html#presentation" class="bouton" id="bouton-pres">présentation</a>
                 <a href="index.html#tarifs" class="bouton" id="bouton-tarifs">prestations et tarifs</a>
                 <a href="index.html#contact" class="bouton" id="bouton-contact">contact</a>
+                <div id="reseaux">
+                    <a href="https://www.facebook.com/geneastory" target="_blank"><img alt="facebook" class="logos-reseaux" id="logo-fb" src="photos-site/logo-fb-geneastory.png"></a>
+                    <a href="https://www.instagram.com/geneastory_" target="_blank"><img alt="instagram" class="logos-reseaux" id="logo-insta" src="photos-site/logo-insta-geneastory.png"></a>
+                </div>
             </nav>
-            <div id="reseaux">
-                <a href="https://www.facebook.com/geneastory" target="_blank"><img alt="facebook" class="logos-reseaux" id="logo-fb" src="photos-site/logo-fb-geneastory.png"></a>
-                <a href="https://www.instagram.com/geneastory_" target="_blank"><img alt="instagram" class="logos-reseaux" id="logo-insta" src="photos-site/logo-insta-geneastory.png"></a>
-            </div>
         </div>
+        <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+        </button>
     </header>
 
     <main>
@@ -35,12 +41,13 @@
             <h1 class="titre-section">Mentions Légales</h1>
             <h2 class="sous-titre"><span class="categories-mentions">Editeur du site</span></h2>
             <p class="texte-mentions">
-                Guillaume PANNETIER - Entrepreneur individuel (EI)<br>
+                <span class="meme-ligne">Guillaume PANNETIER - Entrepreneur individuel (EI)</span><br>
                 Nom commercial : GÉNÉASTORY<br>
-                Adresse : 4, square Henri Régnault 92400 Courbevoie<br>
+                Adresse : <span class="meme-ligne">4, square Henri Régnault, </span>
+                <span class="meme-ligne">92400 Courbevoie</span><br>
                 SIRET : 10622502200016<br>
                 Courriel : contact@geneastory.fr<br>
-                Téléphone : 07 43 59 84 32
+                Téléphone : <span class="meme-ligne">07 43 59 84 32</span>
             </p>
             <h2 class="sous-titre"><span class="categories-mentions">Directeur de publication</span></h2>
             <p class="texte-mentions">
@@ -50,15 +57,16 @@
             <h2 class="sous-titre"><span class="categories-mentions">Hébergement</span></h2>
             <p class="texte-mentions">
                 Netlify, Inc.<br>
-                Adresse : 44 Montgomery Street, Suite 300, San Francisco, CA 94104<br>
+                Adresse : <span class="meme-ligne">44 Montgomery Street, Suite 300, </span>
+                <span class="meme-ligne">San Francisco, CA 94104</span><br>
                 Contact : privacy@netlify.com
             </p>
             <h2 class="sous-titre"><span class="categories-mentions">Crédits</span></h2>
             <p class="texte-mentions">
-                Conception graphique : Guillaume PANNETIER<br>
+                Conception graphique : <span class="meme-ligne">Guillaume PANNETIER et Arnaud AUBLET</span><br>
                 Développement web : Arnaud AUBLET<br>
                 Typographie : @atelier.ater<br>
-                Photographies : Archives familiales personnelles
+                Photographies : <span class="meme-ligne">Archives familiales personnelles</span>
             </p>
             <h2 class="sous-titre"><span class="categories-mentions">Propriété intellectuelle</span></h2>
             <p class="texte-mentions">
@@ -73,8 +81,6 @@
     </main>
 
         <footer class="marge">
-        <img src="photos-site/photo-scroll-1.png" alt="archive" id="scroll-1">
-        <img src="photos-site/photo-scroll-3.png" alt="archive" id="scroll-3">
         <div id="bottom">
             <div class="gauche">
                 <a href="index.html" class="lien-logo"><img alt="logo" class="logo" src="photos-site/logo-geneastory.png"></a>
@@ -93,5 +99,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="js-bis.js"></script>
+
 </body>
 </html>
