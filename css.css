@@ -512,7 +512,7 @@ nav {
     margin-top: clamp(25px, 4vh, 50px);
     margin-bottom: clamp(7.5px, 1.5vh, 15px);
     font-style: italic;
-    font-weight: 100;
+    font-weight: 500;
     font-size: clamp(15px, 1.7vw, 27.5px);
 }
 
@@ -620,7 +620,7 @@ h4 {
 #lignees {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(5px, 1.5vw, 10px);
+    column-gap: clamp(5px, 1.5vw, 10px);
 }
 
 #patronymique:hover, #grille:hover, #devis:hover {
@@ -1331,7 +1331,7 @@ input[type=number] {
 #bottom {
     justify-content: center;
     height: 100%;
-    padding: clamp(5px, 5vh, 50px);
+    padding: clamp(5px, 3.5vh, 40px) 0;
     background: #51695C;
 }
 
@@ -1345,9 +1345,9 @@ footer {
     background: #51695C;
     bottom: 0;
     left: 0;
-    height: auto;
-    min-height: clamp(20px, 25vh, 200px);
     position: relative;
+    height: 30vh;
+    min-height: clamp(30px, 30vh, 200px);
 }
 
 footer a {
@@ -1515,6 +1515,8 @@ iframe {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    color: black;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 900px) and (min-width: 721px) {
