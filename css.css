@@ -195,25 +195,6 @@ nav {
         height: clamp(25px, 10vw, 45px);
     }
 
-    #nav-barre:has(.nav.open)::after {
-        content: "";
-        position: fixed;
-        margin-top: 8vh;
-        width: 100vw;    /* longueur */
-
-        height: 1px;
-
-        background: linear-gradient(
-            to right,
-            transparent,
-            rgba(255, 255, 255, 0.2) 25%,
-            rgba(255, 255, 255, 0.5) 50%,
-            rgba(255, 255, 255, 0.2) 75%,
-            transparent
-        );
-        transition: all 0.5s ease;
-    }
-
     .nav{
         position: absolute;
         top: 7vh;
@@ -445,6 +426,11 @@ nav {
 }
 
 @media screen and (max-width: 550px) {
+
+    #home {
+        height: 85vh;
+        transform: translateY(-5vh);
+    }
     
     #titre-site span {
         font-size: clamp(30px, 12.5vw, 75px);
@@ -456,8 +442,8 @@ nav {
 
     #archives-mobile {
         display: block;
-        width: 120vw;
-        top: 47.5%;
+        width: 125vw;
+        top: 50vh;
     }
 
     .texte-transparent{
@@ -1453,7 +1439,7 @@ footer .lien-logo {
 
     #adresse {
         text-align: center;
-        line-height: clamp(14.5px, 1.75vh, 20px);
+        line-height: clamp(14.5px, 2.5vh, 20px);
         font-size: clamp(12px, 4.5vw, 15px);
         font-weight: 300;
         margin-top: clamp(7.5px, 0.75vh, 20px);
