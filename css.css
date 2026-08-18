@@ -429,15 +429,19 @@ nav {
 }
 
 #archives-mobile {
-    transform: translate(-50%, -45%);
+    transform: translate(-50%, 0);
     display: none;
 }
 
 @media screen and (max-width: 550px) {
 
     #home {
-        height: 85vh;
+        height: 80vh;
         transform: translateY(-5vh);
+    }
+
+    #titre-site {
+        top: 42.5vh;
     }
     
     #titre-site span {
@@ -451,7 +455,7 @@ nav {
     #archives-mobile {
         display: block;
         width: 125vw;
-        top: 50vh;
+        top: 0vh;
     }
 
     .texte-transparent{
