@@ -436,12 +436,11 @@ nav {
 @media screen and (max-width: 550px) {
 
     #home {
-        height: 80vh;
         transform: translateY(-5vh);
     }
 
     #titre-site {
-        top: 52.5%;
+        top: 42.5%;
     }
     
     #titre-site span {
@@ -492,7 +491,7 @@ nav {
 @media screen and (max-width: 550px) {
 
     #presentation {
-        margin-top: 20vh;
+        margin-top: 0;
     }
 
     #texte-presentation {
