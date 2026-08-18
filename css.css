@@ -28,12 +28,20 @@ html {
     overscroll-behavior-y: none;
     overscroll-behavior-x: none;
     overflow-x: clip;
-    background: #51695C;
+    background: linear-gradient(to right, 
+                        rgb(251, 246, 240), 
+                        rgb(221, 205, 183));
     scrollbar-width: none; /* Firefox */
 }
 
 html::-webkit-scrollbar {
     display: none; /* Chrome, Edge, Safari */
+}
+
+@media screen and (max-width: 550px) {
+    html {
+        background: #51695C;
+    }
 }
 
 /*
