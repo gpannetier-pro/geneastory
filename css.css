@@ -177,7 +177,7 @@ nav {
 
     #nav-barre{
         width: 100%;
-        height: 7vh;
+        height: 8vh;
         border-radius: 0;
         justify-content: center;
         position: relative;
@@ -197,7 +197,7 @@ nav {
     #nav-barre:has(.nav.open)::after {
         content: "";
         position: fixed;
-        margin-top: 7vh;
+        margin-top: 8vh;
         width: 100vw;    /* longueur */
 
         height: 1px;
@@ -455,8 +455,8 @@ nav {
 
     #archives-mobile {
         display: block;
-        width: 130vw;
-        top: 50%;
+        width: 120vw;
+        top: 47.5%;
     }
 
     .texte-transparent{
@@ -648,8 +648,8 @@ h4 {
     position: absolute;
     background: #51695C;
     color: white;
-    font-size: clamp(10.5px, 1.2vw, 22.5px);
-    font-weight: bold;
+    font-size: clamp(10.5px, 1.5vw, 25.5px);
+    font-weight: 300;
     z-index: 10;
     font-style: italic;
 }
@@ -1331,7 +1331,7 @@ input[type=number] {
 #bottom {
     justify-content: center;
     height: 100%;
-    padding: clamp(5px, 3.5vh, 40px) 0;
+    padding: clamp(5px, 4.75vh, 45px) 0;
     background: #51695C;
 }
 
@@ -1354,6 +1354,10 @@ footer a {
     color: white;
     text-decoration: none;
     font-size: clamp(12px, 2.5vh, 17px);
+}
+
+footer .droite {
+    padding: 3vh 0;
 }
 
 footer .droite * {
@@ -1389,8 +1393,16 @@ footer .lien-logo {
 
 @media screen and (max-width: 550px) {
 
+    #bottom {
+        padding: clamp(5px, 3.5vh, 40px) 0;
+    }
+
+    #bottom .logo {
+        height: clamp(25px, 8vw, 45px);
+    }
+
     footer {
-        min-height: clamp(26px, 32.5vh, 260px);
+        min-height: clamp(26px, 32.5vh, 270px);    
     }
 
     footer .gauche *, footer .droite * {
@@ -1398,12 +1410,16 @@ footer .lien-logo {
     }
 
     footer .gauche {
-        margin-top: 5vh;
+        margin-top: 4.5vh;
     }
 
     footer .droite {
         padding: 0 0;
-        margin: 2vh 0;
+        margin: 1.5vh 0;
+    }
+
+    footer a {
+        font-size: clamp(15px, 1.75vh, 20px);
     }
 
     .separateur {
@@ -1411,16 +1427,16 @@ footer .lien-logo {
     }
 
     #scroll-1 {
-        width: 30vw;
-        transform: translateY(-12.5vw) rotate(5deg);
-        left: -5vw;
+        width: 40vw;
+        transform: translateY(-14.5vw) rotate(5deg);
+        left: -14vw;
         right: auto;
     }
     
     #scroll-3 {
-        width: 27.5vw;
+        width: 32.5vw;
         transform: translateY(-22.5vw) rotate(-6deg);
-        right: -7.5vw;
+        right: -5vw;
         left: auto;
     }
 
@@ -1430,6 +1446,10 @@ footer .lien-logo {
 
     #adresse {
         text-align: center;
+        line-height: clamp(14.5px, 1.75vh, 20px);
+        font-size: clamp(12px, 4.5vw, 15px);
+        font-weight: 300;
+        margin-top: clamp(7.5px, 0.75vh, 20px);
     }
 
 }
