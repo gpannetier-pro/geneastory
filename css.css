@@ -385,26 +385,26 @@ nav {
 
 #home {
     font-family: Skene;
-    height: 100vh;
+    height: 100dvh;
     position: relative;
     min-height: 61vw;
 }
 
 #titre-site {
-    left: 50vw;
-    top: 45vh;
+    left: 50dvw;
+    top: 45dvh;
     transform: translate(-50%, -50%);
     position: absolute;
     pointer-events: none;
     white-space: nowrap;
-    line-height: min(6vw, clamp(2vw, 5vh, 90px));
+    line-height: min(6vw, clamp(2vw, 5dvh, 90px));
     color: #51695C;
 }
 
 #titre-site span {
     font-weight: lighter;
     font-family: Skene;
-    font-size: clamp(75px, 6.5vw, 200px);
+    font-size: clamp(75px, 6.5dvw, 200px);
     letter-spacing: -0.01em;
     display: flex;
     align-items: center;
@@ -436,7 +436,7 @@ nav {
 @media screen and (max-width: 550px) {
 
     #home {
-        transform: translateY(-5vh);
+        transform: translateY(-5dvh);
     }
 
     #titre-site {
@@ -444,7 +444,7 @@ nav {
     }
     
     #titre-site span {
-        font-size: clamp(30px, 12.5vw, 75px);
+        font-size: clamp(30px, 12.5dvw, 75px);
     }
 
     #archives-ordi{
@@ -453,8 +453,8 @@ nav {
 
     #archives-mobile {
         display: block;
-        width: 125vw;
-        top: 0vh;
+        width: 125dvw;
+        top: 0dvh;
     }
 
     .texte-transparent{
