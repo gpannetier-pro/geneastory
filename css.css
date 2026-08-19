@@ -385,19 +385,19 @@ nav {
 
 #home {
     font-family: Skene;
-    height: 100dvh;
+    height: 100vh;
     position: relative;
     min-height: 61vw;
 }
 
 #titre-site {
-    left: 50dvw;
-    top: 45dvh;
+    left: 50vw;
+    top: 45vh;
     transform: translate(-50%, -50%);
     position: absolute;
     pointer-events: none;
     white-space: nowrap;
-    line-height: min(6vw, clamp(2vw, 5dvh, 90px));
+    line-height: min(6vw, clamp(2vw, 5vh, 90px));
     color: #51695C;
 }
 
@@ -436,15 +436,15 @@ nav {
 @media screen and (max-width: 550px) {
 
     #home {
-        transform: translateY(-5dvh);
+        transform: translateY(-5vh);
     }
 
     #titre-site {
-        top: 42.5dvh;
+        top: 47.5vh;
     }
     
     #titre-site span {
-        font-size: clamp(30px, 12.5dvw, 75px);
+        font-size: clamp(30px, 12.5vw, 75px);
     }
 
     #archives-ordi{
@@ -453,8 +453,8 @@ nav {
 
     #archives-mobile {
         display: block;
-        width: 125dvw;
-        top: 0dvh;
+        width: 125vw;
+        top: 0vh;
     }
 
     .texte-transparent{
